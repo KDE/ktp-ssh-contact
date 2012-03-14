@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=KTp SSH Contact
+GenericName=KTp SSH Contact
+Comment=Open an ssh connection with one of your contacts
+Exec=ktp-ssh-contact %u
+Type=Application
+Terminal=false
+Icon=telepathy-kde
+Categories=Qt;KDE;Network;InstantMessaging;
