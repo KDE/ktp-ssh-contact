@@ -41,6 +41,7 @@ public:
                         const QString &sshContactPath,
                         const QString &terminalPath,
                         const QString &terminalArgs,
+                        const QString &sshArgs,
                         QWidget *parent = 0);
     ~MainWindow();
 
@@ -49,7 +50,8 @@ public:
                              const QString &login,
                              const QString &sshContactPath,
                              const QString &terminalPath,
-                             const QString &terminalArgs);
+                             const QString &terminalArgs,
+                             const QString &sshArgs);
 
 private Q_SLOTS:
     void onAccountManagerReady();

@@ -20,7 +20,7 @@
    <item>
     <layout class="QVBoxLayout" name="contactVLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="contactLabel">
        <property name="font">
         <font>
          <weight>75</weight>
@@ -38,15 +38,18 @@
     <widget class="KSeparator" name="kseparator"/>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="loginHLayout">
-     <item>
+    <layout class="QFormLayout" name="optionsFormLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item row="0" column="0">
       <widget class="QLabel" name="loginLabel">
        <property name="text">
         <string>Login as:</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="0" column="1">
       <widget class="KLineEdit" name="loginLineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -55,6 +58,16 @@
         </sizepolicy>
        </property>
       </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="sshArgsLabel">
+       <property name="text">
+        <string>Additional ssh arguments</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="KLineEdit" name="sshArgsLineEdit"/>
      </item>
     </layout>
    </item>

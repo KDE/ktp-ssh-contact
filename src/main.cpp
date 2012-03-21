@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
     options.add("ssh-contact-path <argument>", ki18n("Path to the ssh-contact executable"));
     options.add("terminal-path <argument>", ki18n("Path to the chosen terminal"));
     options.add("terminal-args <argument>", ki18n("Arguments to pass to the terminal"));
+    options.add("+[ssh-args]", ki18n("Arguments to pass to ssh client (use -- to separate from other options)"));
+
     KCmdLineArgs::addCmdLineOptions(options);
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     KApplication app;
@@ -115,13 +117,20 @@ int main(int argc, char *argv[])
         login = args->getOption("login");
     }
 
+    QStringList sshArgList;
+    for (int i = 0; i < args->count(); i++) {
+        sshArgList << args->arg(i);
+    }
+    QString sshArgs = sshArgList.join(QLatin1String(" "));
+
     if (account.isEmpty() || contact.isEmpty() || contact.isEmpty()) {
         MainWindow *window = new MainWindow(account,
                                             contact,
                                             login,
                                             sshContactPath,
                                             terminalPath,
-                                            terminalArgs);
+                                            terminalArgs,
+                                            sshArgs);
         window->show();
         return app.exec();
     } else {
@@ -130,7 +139,8 @@ int main(int argc, char *argv[])
                                  login,
                                  sshContactPath,
                                  terminalPath,
-                                 terminalArgs);
+                                 terminalArgs,
+                                 sshArgs);
         return 0;
     }
 

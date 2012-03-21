@@ -47,6 +47,7 @@ MainWindow::MainWindow(const QString &account,
                        const QString &sshContactPath,
                        const QString &terminalPath,
                        const QString &terminalArgs,
+                       const QString &sshArgs,
                        QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWindow),
@@ -68,6 +69,8 @@ MainWindow::MainWindow(const QString &account,
     } else {
         ui->loginLineEdit->setText(KUser().loginName());
     }
+
+    ui->sshArgsLineEdit->setText(sshArgs);
 
     Tp::registerTypes();
     KTp::Debug::installCallback(true);
@@ -152,7 +155,8 @@ void MainWindow::onDialogAccepted()
                              ui->loginLineEdit->text(),
                              m_sshContactPath,
                              m_terminalPath,
-                             m_terminalArgs);
+                             m_terminalArgs,
+                             ui->sshArgsLineEdit->text());
 
 }
 
@@ -167,13 +171,17 @@ void MainWindow::startProcess(const QString &account,
                         const QString &login,
                         const QString &sshContactPath,
                         const QString &terminalPath,
-                        const QString &terminalArgs)
+                        const QString &terminalArgs,
+                        const QString &sshArgs)
 {
     QStringList cmdargs = terminalArgs.split(QLatin1Char(' '));
     cmdargs << sshContactPath
             << QLatin1String("--account") << account
             << QLatin1String("--contact") << contact
             << QLatin1String("--login") << login;
+    if (!sshArgs.isEmpty()) {
+        cmdargs << QLatin1String("--") << sshArgs.split(QLatin1Char(' '));
+    }
 
     KProcess termProcess;
     termProcess.setProgram(terminalPath, cmdargs);
