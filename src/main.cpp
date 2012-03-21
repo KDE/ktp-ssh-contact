@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
     options.add("contact <argument>", ki18n("The contact ID"));
     options.add("l");
     options.add("login <argument>", ki18n("Specifies the user to log in as on the remote machine"));
+    options.add(":", ki18n("Extra options (will be saved for next time):"));
     options.add("ssh-contact-path <argument>", ki18n("Path to the ssh-contact executable"));
     options.add("terminal-path <argument>", ki18n("Path to the chosen terminal"));
     options.add("terminal-args <argument>", ki18n("Arguments to pass to the terminal"));
