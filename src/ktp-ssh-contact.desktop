@@ -1,7 +1,25 @@
 [Desktop Entry]
 Name=KTp SSH Contact
+Name[it]=Contatto SSH di KTp
+Name[nl]=KTp SSH-contactpersoon
+Name[pt]=Contacto de SSH do KTP
+Name[pt_BR]=Contato SSH do KTp
+Name[uk]=Контакт SSH KTp
+Name[x-test]=xxKTp SSH Contactxx
 GenericName=KTp SSH Contact
+GenericName[it]=Contatto SSH di KTp
+GenericName[nl]=KTp SSH-contactpersoon
+GenericName[pt]=Contacto de SSH do KTP
+GenericName[pt_BR]=Contato SSH do KTp
+GenericName[uk]=Контакт SSH KTp
+GenericName[x-test]=xxKTp SSH Contactxx
 Comment=Open an ssh connection with one of your contacts
+Comment[it]=Apri una connessione SSH con uno dei tuoi contatti
+Comment[nl]=Open een ssh-verbinding met een van uw contactpersonen
+Comment[pt]=Abrir uma ligação SSH a um dos seus contactos
+Comment[pt_BR]=Abre uma conexão ssh com um de seus contatos
+Comment[uk]=Відкриття з’єднання SSH з одним з ваших контактів
+Comment[x-test]=xxOpen an ssh connection with one of your contactsxx
 Exec=ktp-ssh-contact %u
 Type=Application
 Terminal=false
