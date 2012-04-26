@@ -20,6 +20,7 @@ GenericName[sv]=KTP SSH-kontakt
 GenericName[uk]=Контакт SSH KTp
 GenericName[x-test]=xxKTp SSH Contactxx
 Comment=Open an ssh connection with one of your contacts
+Comment[de]=Eine SSH-Verbindung zu einem Ihrer Kontakte öffnen
 Comment[fr]=Ouvre une connexion ssh avec un de vos contacts
 Comment[it]=Apri una connessione SSH con uno dei tuoi contatti
 Comment[nl]=Open een ssh-verbinding met een van uw contactpersonen
