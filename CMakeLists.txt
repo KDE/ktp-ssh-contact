@@ -1,6 +1,6 @@
 project(ktp-ssh-contact)
 
-set (KTP_SSH_CONTACT_VERSION "0.3.60")
+set (KTP_SSH_CONTACT_VERSION "0.4")
 
 set (CMAKE_MODULE_PATH
      "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules"
