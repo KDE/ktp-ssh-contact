@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KTp SSH Contact
+Name[cs]=Kontakt KTp SSH
 Name[et]=KTp SSH kontakt
 Name[fr]=Contact SSH pour KTp
 Name[hu]=KTp SSH partner
@@ -13,6 +14,7 @@ Name[sv]=KTP SSH-kontakt
 Name[uk]=Контакт SSH KTp
 Name[x-test]=xxKTp SSH Contactxx
 GenericName=KTp SSH Contact
+GenericName[cs]=Kontakt KTp SSH
 GenericName[et]=KTp SSH kontakt
 GenericName[fr]=Contact SSH pour KTp
 GenericName[hu]=KTp SSH partner
@@ -26,6 +28,7 @@ GenericName[sv]=KTP SSH-kontakt
 GenericName[uk]=Контакт SSH KTp
 GenericName[x-test]=xxKTp SSH Contactxx
 Comment=Open an ssh connection with one of your contacts
+Comment[cs]=Otevřít ssh spojení s jedním z Vašich kontaktů
 Comment[de]=Eine SSH-Verbindung zu einem Ihrer Kontakte öffnen
 Comment[et]=SSH-ühenduse avamine mõne kontaktiga
 Comment[fr]=Ouvre une connexion ssh avec un de vos contacts
