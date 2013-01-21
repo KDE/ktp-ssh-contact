@@ -28,7 +28,7 @@
 
 namespace Ui { class MainWindow; }
 namespace KTp { class ContactGridWidget; }
-class ContactsModel;
+namespace KTp { class ContactsListModel; }
 
 class MainWindow : public QWidget
 {
@@ -61,7 +61,7 @@ private Q_SLOTS:
 private:
     Ui::MainWindow *ui;
     Tp::AccountManagerPtr m_accountManager;
-    ContactsModel *m_contactsModel;
+    KTp::ContactsListModel *m_contactsListModel;
     KTp::ContactGridWidget *m_contactGridWidget;
     const QString m_sshContactPath;
     const QString m_terminalPath;

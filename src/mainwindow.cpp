@@ -36,7 +36,8 @@
 #include <TelepathyQt/PendingReady>
 
 #include <KTp/debug.h>
-#include <KTp/Models/contacts-model.h>
+#include <KTp/contact-factory.h>
+#include <KTp/Models/contacts-list-model.h>
 #include <KTp/Models/accounts-filter-model.h>
 #include <KTp/Widgets/contact-grid-widget.h>
 
@@ -51,7 +52,7 @@ MainWindow::MainWindow(const QString &account,
                        QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWindow),
-    m_contactsModel(0),
+    m_contactsListModel(0),
     m_contactGridWidget(0),
     m_sshContactPath(sshContactPath),
     m_terminalPath(terminalPath),
@@ -88,10 +89,12 @@ MainWindow::MainWindow(const QString &account,
                                                                                               << Tp::Connection::FeatureRoster
                                                                                               << Tp::Connection::FeatureSelfContact);
 
-    Tp::ContactFactoryPtr contactFactory = Tp::ContactFactory::create(Tp::Features()  << Tp::Contact::FeatureAlias
+    Tp::ContactFactoryPtr contactFactory = KTp::ContactFactory::create(Tp::Features() << Tp::Contact::FeatureAlias
+                                                                                      << Tp::Contact::FeatureAvatarToken
                                                                                       << Tp::Contact::FeatureAvatarData
                                                                                       << Tp::Contact::FeatureSimplePresence
                                                                                       << Tp::Contact::FeatureCapabilities);
+
 
     Tp::ChannelFactoryPtr channelFactory = Tp::ChannelFactory::create(QDBusConnection::sessionBus());
 
@@ -101,14 +104,14 @@ MainWindow::MainWindow(const QString &account,
                                                   channelFactory,
                                                   contactFactory);
 
-    m_contactsModel = new ContactsModel(this);
+    m_contactsListModel = new KTp::ContactsListModel(this);
     connect(m_accountManager->becomeReady(), SIGNAL(finished(Tp::PendingOperation*)), SLOT(onAccountManagerReady()));
 
 
-    m_contactGridWidget = new KTp::ContactGridWidget(m_contactsModel, this);
+    m_contactGridWidget = new KTp::ContactGridWidget(m_contactsListModel, this);
     m_contactGridWidget->contactFilterLineEdit()->setClickMessage(i18n("Search in Contacts..."));
-    m_contactGridWidget->filter()->setPresenceTypeFilterFlags(AccountsFilterModel::ShowOnlyConnected);
-    m_contactGridWidget->filter()->setCapabilityFilterFlags(AccountsFilterModel::FilterBySSHContactCapability);
+    m_contactGridWidget->filter()->setPresenceTypeFilterFlags(KTp::ContactsFilterModel::ShowOnlyConnected);
+    m_contactGridWidget->filter()->setCapabilityFilterFlags(KTp::ContactsFilterModel::FilterBySSHContactCapability);
     ui->contactVLayout->addWidget(m_contactGridWidget);
 
     connect(m_contactGridWidget,
@@ -130,7 +133,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::onAccountManagerReady()
 {
-    m_contactsModel->setAccountManager(m_accountManager);
+    m_contactsListModel->setAccountManager(m_accountManager);
 }
 
 void MainWindow::onDialogAccepted()
