@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KTp SSH Contact
 Name[cs]=Kontakt KTp SSH
+Name[de]=KTp-SSH-Kontakt
 Name[et]=KTp SSH kontakt
 Name[fr]=Contact SSH pour KTp
 Name[ga]=Teagmháil SSH KTp
@@ -20,6 +21,7 @@ Name[uk]=Контакт SSH KTp
 Name[x-test]=xxKTp SSH Contactxx
 GenericName=KTp SSH Contact
 GenericName[cs]=Kontakt KTp SSH
+GenericName[de]=KTp-SSH-Kontakt
 GenericName[et]=KTp SSH kontakt
 GenericName[fr]=Contact SSH pour KTp
 GenericName[ga]=Teagmháil SSH KTp
