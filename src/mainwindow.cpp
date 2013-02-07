@@ -38,7 +38,7 @@
 #include <KTp/debug.h>
 #include <KTp/contact-factory.h>
 #include <KTp/Models/contacts-list-model.h>
-#include <KTp/Models/accounts-filter-model.h>
+#include <KTp/Models/contacts-filter-model.h>
 #include <KTp/Widgets/contact-grid-widget.h>
 
 
@@ -111,7 +111,7 @@ MainWindow::MainWindow(const QString &account,
     m_contactGridWidget = new KTp::ContactGridWidget(m_contactsListModel, this);
     m_contactGridWidget->contactFilterLineEdit()->setClickMessage(i18n("Search in Contacts..."));
     m_contactGridWidget->filter()->setPresenceTypeFilterFlags(KTp::ContactsFilterModel::ShowOnlyConnected);
-    m_contactGridWidget->filter()->setCapabilityFilterFlags(KTp::ContactsFilterModel::FilterBySSHContactCapability);
+    m_contactGridWidget->filter()->setTubesFilterStrings(QStringList() << QLatin1String("x-ssh-contact"));
     ui->contactVLayout->addWidget(m_contactGridWidget);
 
     connect(m_contactGridWidget,
